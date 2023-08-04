@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Get Youtube Subscribers</h5>
+              <p class="card-text">Get Youtube Subscribers is a simple API application that makes use of node.js and MongoDB as a NoSQL database. The goal of this project is to create an API for there are three routers in it: </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><a href= <%= curr_url_sub %> target="_blank">/subscribers</a></li>
+              <li class="list-group-item"><a href= <%= curr_url_sub_name %> target="_blank"> /subscribers/names</a></li>
+              <li class="list-group-item"><a id="link" > /subscribers/<input type="text" id="urlInput" placeholder=":ID" onkeydown="redirectOnEnter(event)"></a>        
+            </ul>
+          </div>
+    </div>
+
+
+    <script>
+        function redirectOnEnter(event) {
+            if (event.keyCode === 13) { // Check if Enter key is pressed
+                event.preventDefault(); // Prevent the default form submission
+                var input = document.getElementById("urlInput");
+                var link = document.getElementById("link");
+                const currentURL = window.location.href;
+                var url =  `${currentURL}subscribers/${input.value}` ;
+                link.href = url;
+                link.target = "_blank"; // Open the URL in a new tab
+                link.click(); // Simulate a click on the anchor tag
+            }
+        }
+    </script>
+  </body>
+</html>
